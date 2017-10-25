@@ -1,0 +1,6 @@
+[submodule "test/Catch"]
+	path = test/Catch
+	url = https://github.com/philsquared/Catch.git
+[submodule "lib/extdeps/mongoose"]
+	path = lib/extdeps/mongoose
+	url = https://github.com/cesanta/mongoose.git

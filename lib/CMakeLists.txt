@@ -1,0 +1,21 @@
+project (LIBLOGOL)
+
+include_directories(${LIBLOGOL_SOURCE_DIR}/include)
+
+SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -pthread" )
+
+# OWN SOURCE CODE
+file (GLOB_RECURSE LOGOL_SRC ${LIBLOGOL_SOURCE_DIR}/src/*.c*)
+file (GLOB_RECURSE LOGOL_HEADERS ${LIBLOGOL_SOURCE_DIR}/include/*.h)
+
+# MONGOOSE
+set( MONGOOSE_SRC ${LIBLOGOL_SOURCE_DIR}/extdeps/mongoose/mongoose.c )
+set( MONGOOSE_HEADERS ${LIBLOGOL_SOURCE_DIR}/extdeps/mongoose/mongoose.h )
+
+if( BUILD_SHARED_LIBRARY )
+set( LOGOL_LIB_TYPE SHARED )
+else()
+set( LOGOL_LIB_TYPE STATIC )
+endif()
+
+add_library( logol ${LOGOL_LIB_TYPE} ${LOGOL_SRC} ${MONGOOSE_SRC} ${MONGOOSE_HEADERS} ${LOGOL_HEADERS} )
