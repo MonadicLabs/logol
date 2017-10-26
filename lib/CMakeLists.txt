@@ -11,6 +11,7 @@ file (GLOB_RECURSE LOGOL_HEADERS ${LIBLOGOL_SOURCE_DIR}/include/*.h)
 # MONGOOSE
 set( MONGOOSE_SRC ${LIBLOGOL_SOURCE_DIR}/extdeps/mongoose/mongoose.c )
 set( MONGOOSE_HEADERS ${LIBLOGOL_SOURCE_DIR}/extdeps/mongoose/mongoose.h )
+INCLUDE_DIRECTORIES( ${LIBLOGOL_SOURCE_DIR}/extdeps/mongoose )
 
 if( BUILD_SHARED_LIBRARY )
 set( LOGOL_LIB_TYPE SHARED )
